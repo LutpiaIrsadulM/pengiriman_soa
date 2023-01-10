@@ -29,12 +29,22 @@ class Barang_model extends CI_Model
 
     public function getAll()
     {
-        return $this->db->get($this->_table)->result();
+        return $this->db->get_where($this->_table, ["status_barang" => ""])->result();
     }
     
     public function getById($id)
     {
         return $this->db->get_where($this->_table, ["id_barang" => $id])->row();
+    }
+
+    public function getByDiper()
+    {
+        return $this->db->get_where($this->_table, ["status_barang" => "Di perjalanan"])->result();
+    }
+
+    public function getByTerk()
+    {
+        return $this->db->get_where($this->_table, ["status_barang" => "Terkirim"])->result();
     }
 
     public function save()
