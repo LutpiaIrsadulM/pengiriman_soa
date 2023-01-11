@@ -29,6 +29,9 @@
 						<a href="<?php echo site_url('admin/products/') ?>"><i class="fas fa-arrow-left"></i> Back</a>
 					</div>
 					<div class="card-body">
+						<?php echo $products->id_barang?>
+						<?php echo $products->nama_barang?>
+						<?php echo $products->alamat_kirim?>
 
 						<form action="<?php echo site_url('admin/products/add') ?>" method="post" enctype="multipart/form-data" >
 							<div class="form-group">

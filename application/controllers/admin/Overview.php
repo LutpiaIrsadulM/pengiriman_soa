@@ -11,7 +11,8 @@ class Overview extends CI_Controller {
 	public function index()
 	{
         // load view admin/overview.php
-		$data["barangs"] = $this->barang_model->getAll();
+		$data["customers"] = $this->barang_model->getAll();
+		$data["barangs"] = $this->barang_model->getAllBaju();
         $this->load->view("admin/overview", $data);
 	}
 }

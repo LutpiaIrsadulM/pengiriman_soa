@@ -2,73 +2,17 @@
 
 class Barang_model extends CI_Model
 {
-    private $_table = "tb_barang";
-
-    public $product_id;
-    public $name;
-    public $price;
-    //public $image = "default.jpg";
-    public $description;
-
-    public function rules()
-    {
-        return [
-            ['field' => 'name',
-            'label' => 'Name',
-            'rules' => 'required'],
-
-            ['field' => 'price',
-            'label' => 'Price',
-            'rules' => 'numeric'],
-            
-            ['field' => 'description',
-            'label' => 'Description',
-            'rules' => 'required']
-        ];
-    }
+    private $_table = "bajusales834";
+    private $_table_baju = "baju834";
 
     public function getAll()
     {
-        return $this->db->get_where($this->_table, ["status_barang" => ""])->result();
+        return $this->db->get($this->_table)->result();
     }
     
-    public function getById($id)
+    public function getAllBaju()
     {
-        return $this->db->get_where($this->_table, ["id_barang" => $id])->row();
+        return $this->db->get($this->_table_baju)->result();
     }
 
-    public function getByDiper()
-    {
-        return $this->db->get_where($this->_table, ["status_barang" => "Di perjalanan"])->result();
-    }
-
-    public function getByTerk()
-    {
-        return $this->db->get_where($this->_table, ["status_barang" => "Terkirim"])->result();
-    }
-
-    public function save()
-    {
-        $post = $this->input->post();
-        $this->product_id = uniqid();
-        $this->name = $post["name"];
-        $this->price = $post["price"];
-        $this->description = $post["description"];
-        return $this->db->insert($this->_table, $this);
-    }
-
-    public function update()
-    {
-        $post = $this->input->post();
-        $this->product_id = $post["id"];
-        $this->name = $post["name"];
-        $this->price = $post["price"];
-        $this->description = $post["description"];
-        return $this->db->update($this->_table, $this, array('product_id' => $post['id']));
-    }
-
-    public function delete($id)
-    {
-        return $this->db->delete($this->_table, array("product_id" => $id));
-    }
 }

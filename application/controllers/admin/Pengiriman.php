@@ -8,6 +8,7 @@ class pengiriman extends CI_Controller
     {
         parent::__construct();
         $this->load->model("barang_model");
+        $this->load->model("pengiriman_model");
         $this->load->library('form_validation');
     }
 
@@ -43,6 +44,21 @@ class pengiriman extends CI_Controller
         $this->load->view("admin/barang/new_form");
     }
 
+    public function assign($id)
+    {
+        $product = $this->barang_model;
+        $validation = $this->form_validation;
+        $validation->set_rules($product->rules());
+
+        if ($validation->run()) {
+            $product->save();
+            $this->session->set_flashdata('success', 'Berhasil disimpan');
+        }
+
+        $data["products"] = $this->barang_model->getById($id);
+        $this->load->view("admin/barang/new_form", $data);
+    }
+
     public function edit($id = null)
     {
         if (!isset($id)) redirect('admin/barang');
@@ -62,7 +78,7 @@ class pengiriman extends CI_Controller
         $this->load->view("admin/barang/edit_form", $data);
     }
 
-    public function delete($id=null)
+    public function delete($id)
     {
         if (!isset($id)) show_404();
         
@@ -70,4 +86,6 @@ class pengiriman extends CI_Controller
             redirect(site_url('admin/barang'));
         }
     }
+
+    
 }
