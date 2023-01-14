@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 14, 2023 at 02:31 PM
+-- Generation Time: Jan 14, 2023 at 02:57 PM
 -- Server version: 8.0.31
 -- PHP Version: 8.1.10
 
@@ -125,6 +125,7 @@ CREATE TABLE `tb_pengiriman` (
   `sale_id` int NOT NULL,
   `id_kurir` int NOT NULL,
   `nama_customer` varchar(50) NOT NULL,
+  `phone` varchar(255) NOT NULL,
   `nama_barang` varchar(30) NOT NULL,
   `alamat_pengiriman` text NOT NULL,
   `harga_barang` varchar(30) NOT NULL,
@@ -138,9 +139,8 @@ CREATE TABLE `tb_pengiriman` (
 -- Dumping data for table `tb_pengiriman`
 --
 
-INSERT INTO `tb_pengiriman` (`id_pengiriman`, `sale_id`, `id_kurir`, `nama_customer`, `nama_barang`, `alamat_pengiriman`, `harga_barang`, `ongkos_kirim`, `tanggal_kirim`, `tanggal_sampai`, `status_pengiriman`) VALUES
-('63c28d7b4121e', 2, 2, 'MAULANA', 'Baju A-1.', 'Kota Bogor. Kec, cibeunying kaler. Kelularahan c', 'Rp. 100.000', '10000', '2023-01-11 15:47:24', '', 'Dikirim'),
-('63c28fbdd65aa', 1, 2, 'Ridwan agung', 'Baju A-2. ', 'Kota Bandung. Kec, cibeunying kaler. Kelularahan c', 'Rp. 250.000', '2.500', '2023-01-11 15:47:24', '', 'Diterima');
+INSERT INTO `tb_pengiriman` (`id_pengiriman`, `sale_id`, `id_kurir`, `nama_customer`, `phone`, `nama_barang`, `alamat_pengiriman`, `harga_barang`, `ongkos_kirim`, `tanggal_kirim`, `tanggal_sampai`, `status_pengiriman`) VALUES
+('63c2b2568def5', 2, 1, 'MAULANA', '083122618889', 'Baju A-1.', 'Kota Bogor. Kec, cibeunying kaler. Kelularahan c', 'Rp. 100.000', '10000', '2023-01-11 15:47:24', '', 'Dikirim');
 
 --
 -- Indexes for dumped tables

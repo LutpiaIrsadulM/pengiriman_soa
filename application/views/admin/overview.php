@@ -15,7 +15,7 @@
 		<div id="content-wrapper">
 
 			<div class="container-fluid">
-		<!--		<?php if ($this->session->flashdata('success')): ?>
+				<!--		<?php if ($this->session->flashdata('success')) : ?>
 					<div class="alert alert-success" role="alert">
 						<?php echo $this->session->flashdata('success'); ?>
 					</div>
@@ -30,6 +30,7 @@
 								<thead>
 									<tr>
 										<th>Name</th>
+										<th>Phone</th>
 										<th>product</th>
 										<th>Date</th>
 										<th>Address</th>
@@ -37,30 +38,18 @@
 									</tr>
 								</thead>
 								<tbody>
-									<?php foreach ($customers as $product): ?>
-
-									<tr>
-										<td width="150">
-											<?php echo $product->customer_name_834 ?>
-										</td>
-										<td>
-											<?php echo $product->nama_baju_834 ?>
-											
-										</td>
-										<td class="small">
-                                            <?php echo $product->sale_date_834 ?></td>
-                                        <td class="small">
-                                            <?php echo $product->customer_address_834 ?></td>
-                                        
-											
-										<td width="250">
-												
-												<a href="<?php echo site_url('admin/pengiriman/assign/'.$product->sale_id_834) ?>"
-											 class="btn btn-small"><i class="fas fa-edit"></i> Assign Courier</a>
+									<?php foreach ($customers as $product) : ?>
+										<tr>
+											<td width="150"><?php echo $product->customer_name_834 ?></td>
+											<td width="150"><?php echo $product->customer_phone_834 ?></td>
+											<td><?php echo $product->nama_baju_834 ?></td>
+											<td class="small"><?php echo $product->sale_date_834 ?></td>
+											<td class="small"><?php echo $product->customer_address_834 ?></td>
+											<td width="250">
+												<a href="<?php echo site_url('admin/pengiriman/assign/' . $product->sale_id_834) ?>" class="btn btn-small"><i class="fas fa-edit"></i> Assign Courier</a>
 											</td>
-									</tr>
+										</tr>
 									<?php endforeach; ?>
-
 								</tbody>
 							</table>
 						</div>

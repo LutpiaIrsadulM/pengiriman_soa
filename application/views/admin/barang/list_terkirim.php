@@ -27,39 +27,34 @@
                             <table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
-                                        <th>Name</th>
+                                    <th>Name</th>
+                                        <th>Phone</th>
                                         <th>Product</th>
                                         <th>Alamat</th>
-                                        <th>Harga Product</th>
-                                        <th>Ongkos Kirim</th>
-                                        <th>Tanggal Kirim</th>
+                                        <th>Harga</th>
+                                        <th>Ongkos</th>
                                         <th>Kurir</th>
+                                        <th>Tanggal Kirim</th>
+                                        <th>Tanggal Sampai</th>
                                         <th>Status Pengiriman</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php foreach ($barangs as $product) : ?>
                                         <tr>
-                                            <td width="150">
-                                                <?php echo $product->nama_customer ?>
+                                        <td width="150"><?php echo $product->nama_customer ?></td>
+                                            <td width="150"><?php echo $product->phone ?></td>
+                                            <td width="150"><?php echo $product->nama_barang ?></td>
+                                            <td class="small" width="150">
+                                                <?php echo substr($product->alamat_pengiriman, 0, 30) ?>...</td>
+                                            </td>
+                                            <td width="150"><?php echo $product->harga_barang ?></td>
+                                            <td width="150"><?php echo $product->ongkos_kirim ?></td>
+                                            <td width="150"><?php echo $product->nama_kurir ?></td>
+                                            <td width="150"><?php echo $product->tanggal_kirim ?></td>
                                             </td>
                                             <td width="150">
-                                                <?php echo $product->nama_barang ?>
-                                            </td>
-                                            <td width="250">
-                                                <?php echo substr($product->alamat_pengiriman, 0, 120) ?>...</td>
-                                            </td>
-                                            <td width="150">
-                                                <?php echo $product->harga_barang ?>
-                                            </td>
-                                            <td width="150">
-                                                <?php echo $product->ongkos_kirim ?>
-                                            </td>
-                                            <td width="150">
-                                                <?php echo $product->nama_kurir ?>
-                                            </td>
-                                            <td width="150">
-                                                <?php echo $product->tanggal_kirim ?>
+                                                <?php echo $product->tanggal_sampai ?>
                                             </td>
                                             <td class="bg-success text-center">
                                                 <?php echo $product->status_pengiriman ?>

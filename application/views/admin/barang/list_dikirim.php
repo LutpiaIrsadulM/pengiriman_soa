@@ -20,7 +20,7 @@
 
                 <!-- DataTables -->
                 <div class="card mb-3">
-                    
+
                     <div class="card-body">
 
                         <div class="table-responsive">
@@ -28,43 +28,33 @@
                                 <thead>
                                     <tr>
                                         <th>Name</th>
+                                        <th>Phone</th>
                                         <th>Product</th>
                                         <th>Alamat</th>
-                                        <th>Harga Product</th>
-                                        <th>Ongkos Kirim</th>
-                                        <th>Tanggal Kirim</th>
+                                        <th>Harga</th>
+                                        <th>Ongkos</th>
                                         <th>Kurir</th>
-                                        <th>Status Pengiriman</th>
+                                        <th>Tanggal Kirim</th>
+                                        <th>Status</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php foreach ($barangs as $product) : ?>
                                         <tr>
-                                            <td width="150">
-                                                <?php echo $product->nama_customer ?>
-                                            </td>
-                                            <td width="150">
-                                                <?php echo $product->nama_barang ?>
-                                            </td>
-                                            <td width="250">
+                                            <td width="150"><?php echo $product->nama_customer ?></td>
+                                            <td width="150"><?php echo $product->phone ?></td>
+                                            <td width="150"><?php echo $product->nama_barang ?></td>
+                                            <td width="250" class="small">
                                                 <?php echo substr($product->alamat_pengiriman, 0, 120) ?>...</td>
                                             </td>
-                                            <td width="150">
-                                                <?php echo $product->harga_barang ?>
-                                            </td>
-                                            <td width="150">
-                                                <?php echo $product->ongkos_kirim ?>
-                                            </td>
-                                            <td width="150">
-                                                <?php echo $product->nama_kurir ?>
-                                            </td>
-                                            <td width="150">
-                                                <?php echo $product->tanggal_kirim ?>
-                                            </td>
+                                            <td width="150"><?php echo $product->harga_barang ?></td>
+                                            <td width="150"><?php echo $product->ongkos_kirim ?></td>
+                                            <td width="150"><?php echo $product->nama_kurir ?></td>
+                                            <td width="150"><?php echo $product->tanggal_kirim ?></td>
                                             <td class="bg-warning text-center">
                                                 <?php echo $product->status_pengiriman ?>
                                             </td>
-                                            
+
                                         </tr>
                                     <?php endforeach; ?>
 

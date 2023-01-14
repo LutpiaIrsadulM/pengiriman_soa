@@ -18,24 +18,40 @@
 
 				<?php $this->load->view("admin/_partials/breadcrumb.php") ?>
 
-
+				<!--	<?php if ($this->session->flashdata('success')) : ?>
+					<div class="alert alert-success" role="alert">
+						<?php echo $this->session->flashdata('success'); ?>
+					</div>
+				<?php endif; ?>
+			-->
 				<div class="card mb-3">
 					<div class="card-header">
 						<a href="<?php echo site_url('admin/overview/') ?>"><i class="fas fa-arrow-left"></i> Back</a>
 					</div>
 					<div class="card-body">
-						<form action="<?php echo site_url('admin/pengiriman/add') ?>" method="post" enctype="multipart/form-data" >
+						<form action="<?php echo site_url('admin/pengiriman/add') ?>" method="post" enctype="multipart/form-data">
 							<div class="form-group">
-							<table class="table "  width="100%" cellspacing="0">
-								<tr >
-									<td width="120"><label for="nama_customer">Nama </label></td>
-									<td><?php echo $products->customer_name_834 ?></td>
-								</tr>
-								<input class="form-control <?php echo form_error('nama_customer') ? 'is-invalid':'' ?>"
-								 type="hidden" name="nama_customer" value="<?php echo $products->customer_name_834 ?>"/>
-								<div class="invalid-feedback">
-									<?php echo form_error('nama_customer') ?>
-								</div>
+								<table class="table " width="100%" cellspacing="0">
+									<tr>
+										<td width="120"><label for="nama_customer">Nama </label></td>
+										<td><?php echo $products->customer_name_834 ?></td>
+									</tr>
+									<input class="form-control <?php echo form_error('nama_customer') ? 'is-invalid' : '' ?>" type="hidden" name="nama_customer" value="<?php echo $products->customer_name_834 ?>" />
+									<div class="invalid-feedback">
+										<?php echo form_error('nama_customer') ?>
+									</div>
+							</div>
+
+							<div class="form-group">
+								<table class="table " width="100%" cellspacing="0">
+									<tr>
+										<td width="120"><label for="phone">Phone </label></td>
+										<td><?php echo $products->customer_phone_834 ?></td>
+									</tr>
+									<input class="form-control <?php echo form_error('phone') ? 'is-invalid' : '' ?>" type="hidden" name="phone" value="<?php echo $products->customer_phone_834 ?>" />
+									<div class="invalid-feedback">
+										<?php echo form_error('phone') ?>
+									</div>
 							</div>
 
 							<div class="form-group">
@@ -43,8 +59,7 @@
 									<td width="120"><label for="nama_barang">Product </label></td>
 									<td><?php echo $products->nama_baju_834 ?></td>
 								</tr>
-								<input class="form-control <?php echo form_error('nama_barang') ? 'is-invalid':'' ?>"
-								 type="hidden" name="nama_barang" value="<?php echo $products->nama_baju_834 ?>" />
+								<input class="form-control <?php echo form_error('nama_barang') ? 'is-invalid' : '' ?>" type="hidden" name="nama_barang" value="<?php echo $products->nama_baju_834 ?>" />
 								<div class="invalid-feedback">
 									<?php echo form_error('nama_barang') ?>
 								</div>
@@ -56,8 +71,7 @@
 									<td width="120"><label for="alamat">Alamat </label></td>
 									<td><?php echo $products->customer_address_834 ?></td>
 								</tr>
-								<input class="form-control-file <?php echo form_error('alamat') ? 'is-invalid':'' ?>"
-								 type="hidden" name="alamat" value="<?php echo $products->customer_address_834 ?>"/>
+								<input class="form-control-file <?php echo form_error('alamat') ? 'is-invalid' : '' ?>" type="hidden" name="alamat" value="<?php echo $products->customer_address_834 ?>" />
 								<div class="invalid-feedback">
 									<?php echo form_error('alamat') ?>
 								</div>
@@ -68,8 +82,7 @@
 									<td width="120"><label for="harga">Harga </label></td>
 									<td><?php echo $products->harga_baju_834 ?></td>
 								</tr>
-								<input class="form-control-file <?php echo form_error('harga') ? 'is-invalid':'' ?>"
-								 type="hidden" name="harga" value="<?php echo $products->harga_baju_834 ?>"/>
+								<input class="form-control-file <?php echo form_error('harga') ? 'is-invalid' : '' ?>" type="hidden" name="harga" value="<?php echo $products->harga_baju_834 ?>" />
 								<div class="invalid-feedback">
 									<?php echo form_error('harga') ?>
 								</div>
@@ -80,8 +93,7 @@
 									<td width="120"><label for="ongkos">Ongkos </label></td>
 									<td><?php echo $fees->harga ?></td>
 								</tr>
-								<input class="form-control-file <?php echo form_error('ongkos') ? 'is-invalid':'' ?>"
-								 type="hidden" name="ongkos" value="<?php echo $fees->harga ?>"/>
+								<input class="form-control-file <?php echo form_error('ongkos') ? 'is-invalid' : '' ?>" type="hidden" name="ongkos" value="<?php echo $fees->harga ?>" />
 								<div class="invalid-feedback">
 									<?php echo form_error('ongkos') ?>
 								</div>
@@ -92,8 +104,7 @@
 									<td width="120"><label for="tkirim">Tanggal Kirim </label></td>
 									<td><?php echo $products->sale_date_834 ?></td>
 								</tr>
-								<input class="form-control-file <?php echo form_error('tkirim') ? 'is-invalid':'' ?>"
-								 type="hidden" name="tkirim" value="<?php echo $products->sale_date_834 ?>"/>
+								<input class="form-control-file <?php echo form_error('tkirim') ? 'is-invalid' : '' ?>" type="hidden" name="tkirim" value="<?php echo $products->sale_date_834 ?>" />
 								<div class="invalid-feedback">
 									<?php echo form_error('tkirim') ?>
 								</div>
@@ -103,14 +114,14 @@
 								<tr>
 									<td><label for="name">Courier*</label></td>
 									<td>
-										<select name="id_kurir" class="form-control <?php echo form_error('id_kurir') ? 'is-invalid':'' ?>">
+										<select name="id_kurir" class="form-control <?php echo form_error('id_kurir') ? 'is-invalid' : '' ?>">
 											<option value="">------------Choose Courier------------</option>
-											<?php foreach($couriers as $courier):?>
+											<?php foreach ($couriers as $courier) : ?>
 												<option value="<?php echo $courier->id_kurir ?>"><?php echo $courier->nama_kurir ?></option>
-												<?php endforeach?>
-											</select>
-										</td>
-										</tr>
+											<?php endforeach ?>
+										</select>
+									</td>
+								</tr>
 								</table>
 								<div class="invalid-feedback">
 									<?php echo form_error('id_kurir') ?>

@@ -13,6 +13,7 @@ class Pengiriman_model extends CI_Model
     public $id_pengiriman;
     public $id_kurir;
     public $nama_customer;
+    public $phone;
     public $nama_barang;
     public $alamat_pengiriman;
     public $harga_barang;
@@ -107,6 +108,7 @@ class Pengiriman_model extends CI_Model
         $this->sale_id = $post["sale_id"];
         $this->id_kurir = $post["id_kurir"];
         $this->nama_customer = $post["nama_customer"];
+        $this->phone = $post["phone"];
         $this->nama_barang = $post["nama_barang"];
         $this->alamat_pengiriman = $post["alamat"];
         $this->harga_barang = $post["harga"];
