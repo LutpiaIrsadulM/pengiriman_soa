@@ -20,7 +20,7 @@
 
                 <!-- DataTables -->
                 <div class="card mb-3">
-
+                    
                     <div class="card-body">
 
                         <div class="table-responsive">
@@ -28,27 +28,42 @@
                                 <thead>
                                     <tr>
                                         <th>Name</th>
-                                        <th>Price</th>
-                                        <th>Description</th>
-                                        <th>Status</th>
+                                        <th>Product</th>
+                                        <th>Alamat</th>
+                                        <th>Harga Product</th>
+                                        <th>Ongkos Kirim</th>
+                                        <th>Tanggal Kirim</th>
+                                        <th>Kurir</th>
+                                        <th>Status Pengiriman</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php foreach ($barangs as $product) : ?>
                                         <tr>
                                             <td width="150">
+                                                <?php echo $product->nama_customer ?>
+                                            </td>
+                                            <td width="150">
                                                 <?php echo $product->nama_barang ?>
                                             </td>
-                                            <td>
+                                            <td width="250">
+                                                <?php echo substr($product->alamat_pengiriman, 0, 120) ?>...</td>
+                                            </td>
+                                            <td width="150">
                                                 <?php echo $product->harga_barang ?>
                                             </td>
-                                            <td class="small">
-                                                <?php echo substr($product->alamat_kirim, 0, 120) ?>...</td>
-                                                <td>
-                                                    <!--<img src="<?php echo base_url('upload/product/' . $product->image) ?>" width="64" />
-                                                !-->
-                                                    <?php echo $product->status_barang ?>
-                                                </td>
+                                            <td width="150">
+                                                <?php echo $product->ongkos_kirim ?>
+                                            </td>
+                                            <td width="150">
+                                                <?php echo $product->nama_kurir ?>
+                                            </td>
+                                            <td width="150">
+                                                <?php echo $product->tanggal_kirim ?>
+                                            </td>
+                                            <td class="bg-success text-center">
+                                                <?php echo $product->status_pengiriman ?>
+                                            </td>
                                             
                                         </tr>
                                     <?php endforeach; ?>
@@ -76,7 +91,6 @@
     <?php $this->load->view("admin/_partials/modal.php") ?>
 
     <?php $this->load->view("admin/_partials/js.php") ?>
-
 </body>
 
 </html>

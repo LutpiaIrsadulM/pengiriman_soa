@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 11, 2023 at 04:42 PM
+-- Generation Time: Jan 14, 2023 at 02:31 PM
 -- Server version: 8.0.31
 -- PHP Version: 8.1.10
 
@@ -67,7 +67,8 @@ CREATE TABLE `bajusales834` (
 --
 
 INSERT INTO `bajusales834` (`sale_id_834`, `sale_date_834`, `bajuk_id_834`, `customer_name_834`, `customer_phone_834`, `customer_address_834`) VALUES
-(1, '2023-01-11 08:47:24', 3, 'Ridwan agung', '083122618889', 'Kota Bandung. Kec, cibeunying kaler. Kelularahan c');
+(1, '2023-01-11 08:47:24', 3, 'Ridwan agung', '083122618889', 'Kota Bandung. Kec, cibeunying kaler. Kelularahan c'),
+(2, '2023-01-11 08:47:24', 4, 'MAULANA', '083122618889', 'Kota Bogor. Kec, cibeunying kaler. Kelularahan c');
 
 -- --------------------------------------------------------
 
@@ -86,7 +87,9 @@ CREATE TABLE `tb_biaya` (
 --
 
 INSERT INTO `tb_biaya` (`id_biaya`, `kabupaten`, `harga`) VALUES
-(1, 'Bandung', '2.500');
+(1, 'Bandung', '2.500'),
+(2, 'Bandung Barat', '3000'),
+(3, 'Bogor', '10000');
 
 -- --------------------------------------------------------
 
@@ -103,6 +106,14 @@ CREATE TABLE `tb_kurir` (
   `alamat_kurir` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+--
+-- Dumping data for table `tb_kurir`
+--
+
+INSERT INTO `tb_kurir` (`id_kurir`, `nama_kurir`, `gender_kurir`, `no_telp`, `email_kurir`, `alamat_kurir`) VALUES
+(1, 'Suya', 1, '081728xxxxxx', 'Surya16@gmail.com', 'Juanda 3 Bandung'),
+(2, 'djarum', 1, '081728xxxxxx', 'DjaromC@gmail.com', 'Juanda 3 Bandung');
+
 -- --------------------------------------------------------
 
 --
@@ -110,8 +121,10 @@ CREATE TABLE `tb_kurir` (
 --
 
 CREATE TABLE `tb_pengiriman` (
-  `id_pengiriman` int NOT NULL,
+  `id_pengiriman` varchar(64) NOT NULL,
+  `sale_id` int NOT NULL,
   `id_kurir` int NOT NULL,
+  `nama_customer` varchar(50) NOT NULL,
   `nama_barang` varchar(30) NOT NULL,
   `alamat_pengiriman` text NOT NULL,
   `harga_barang` varchar(30) NOT NULL,
@@ -120,6 +133,14 @@ CREATE TABLE `tb_pengiriman` (
   `tanggal_sampai` varchar(255) NOT NULL,
   `status_pengiriman` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `tb_pengiriman`
+--
+
+INSERT INTO `tb_pengiriman` (`id_pengiriman`, `sale_id`, `id_kurir`, `nama_customer`, `nama_barang`, `alamat_pengiriman`, `harga_barang`, `ongkos_kirim`, `tanggal_kirim`, `tanggal_sampai`, `status_pengiriman`) VALUES
+('63c28d7b4121e', 2, 2, 'MAULANA', 'Baju A-1.', 'Kota Bogor. Kec, cibeunying kaler. Kelularahan c', 'Rp. 100.000', '10000', '2023-01-11 15:47:24', '', 'Dikirim'),
+('63c28fbdd65aa', 1, 2, 'Ridwan agung', 'Baju A-2. ', 'Kota Bandung. Kec, cibeunying kaler. Kelularahan c', 'Rp. 250.000', '2.500', '2023-01-11 15:47:24', '', 'Diterima');
 
 --
 -- Indexes for dumped tables
@@ -163,7 +184,7 @@ ALTER TABLE `tb_pengiriman`
 -- AUTO_INCREMENT for table `bajusales834`
 --
 ALTER TABLE `bajusales834`
-  MODIFY `sale_id_834` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `sale_id_834` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

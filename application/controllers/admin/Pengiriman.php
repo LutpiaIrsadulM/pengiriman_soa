@@ -18,74 +18,42 @@ class pengiriman extends CI_Controller
         $this->load->view("admin/barang/list", $data);
     }
 
-    public function terkirim()
+    public function Diterima()
     {
-        $data["barangs"] = $this->barang_model->getByTerk();
+        $data["barangs"] = $this->barang_model->getByDiterima();
         $this->load->view("admin/barang/list_terkirim", $data);
     }
 
     public function dikirim()
     {
-        $data["barangs"] = $this->barang_model->getByDiper();
+        $data["barangs"] = $this->barang_model->getByDikirim();
         $this->load->view("admin/barang/list_dikirim", $data);
     }
 
     public function add()
     {
-        $product = $this->barang_model;
+        $product = $this->pengiriman_model;
         $validation = $this->form_validation;
         $validation->set_rules($product->rules());
 
         if ($validation->run()) {
             $product->save();
             $this->session->set_flashdata('success', 'Berhasil disimpan');
+            redirect('admin/overview/');
+            
         }
 
-        $this->load->view("admin/barang/new_form");
+        $this->load->view("admin/overview");
     }
 
     public function assign($id)
     {
-        $product = $this->barang_model;
-        $validation = $this->form_validation;
-        $validation->set_rules($product->rules());
-
-        if ($validation->run()) {
-            $product->save();
-            $this->session->set_flashdata('success', 'Berhasil disimpan');
-        }
-
-        $data["products"] = $this->barang_model->getById($id);
+        $data["products"] = $this->pengiriman_model->getById($id);
+        $data["fees"] = $this->pengiriman_model->getFees($id);
+        $data["couriers"] = $this->pengiriman_model->getCourier();
         $this->load->view("admin/barang/new_form", $data);
     }
 
-    public function edit($id = null)
-    {
-        if (!isset($id)) redirect('admin/barang');
-       
-        $product = $this->barang_model;
-        $validation = $this->form_validation;
-        $validation->set_rules($product->rules());
-
-        if ($validation->run()) {
-            $product->update();
-            $this->session->set_flashdata('success', 'Berhasil disimpan');
-        }
-
-        $data["product"] = $product->getById($id);
-        if (!$data["product"]) show_404();
-        
-        $this->load->view("admin/barang/edit_form", $data);
-    }
-
-    public function delete($id)
-    {
-        if (!isset($id)) show_404();
-        
-        if ($this->barang_model->delete($id)) {
-            redirect(site_url('admin/barang'));
-        }
-    }
 
     
 }

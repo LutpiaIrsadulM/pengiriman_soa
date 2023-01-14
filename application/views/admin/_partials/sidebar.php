@@ -14,7 +14,7 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
             <a class="dropdown-item" href="<?php echo site_url('admin/pengiriman/dikirim') ?>">Di kirim</a>
-            <a class="dropdown-item" href="<?php echo site_url('admin/pengiriman/terkirim') ?>">Terkirim</a>
+            <a class="dropdown-item" href="<?php echo site_url('admin/pengiriman/diterima') ?>">Terkirim</a>
         </div>
     </li>
     <li class="nav-item">
