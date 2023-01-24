@@ -46,6 +46,7 @@ class pengiriman extends CI_Controller
         $this->load->view("admin/overview");
     }
 
+    
     public function assign($id)
     {
         $data["products"] = $this->pengiriman_model->getById($id);
@@ -53,7 +54,5 @@ class pengiriman extends CI_Controller
         $data["couriers"] = $this->pengiriman_model->getCourier();
         $this->load->view("admin/barang/new_form", $data);
     }
-
-
     
 }

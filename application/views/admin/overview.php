@@ -1,3 +1,5 @@
+<?php $this->session->userdata('username'); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,8 +11,13 @@
 
 	<?php $this->load->view("admin/_partials/navbar.php") ?>
 	<div id="wrapper">
+	
+	<?php 
+		$this->load->view("admin/_partials/sidebar.php");
 
-		<?php $this->load->view("admin/_partials/sidebar.php") ?>
+	?>
+	
+
 
 		<div id="content-wrapper">
 

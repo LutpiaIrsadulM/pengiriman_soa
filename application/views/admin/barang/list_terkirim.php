@@ -56,7 +56,7 @@
                                             <td width="150">
                                                 <?php echo $product->tanggal_sampai ?>
                                             </td>
-                                            <td class="bg-success text-center">
+                                            <td class="text-center">
                                                 <?php echo $product->status_pengiriman ?>
                                             </td>
                                             

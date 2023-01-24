@@ -117,4 +117,28 @@ class Pengiriman_model extends CI_Model
         $this->db->insert($this->_table_deliver, $this);
     }
 
+
+    // =========================================
+    // fungsi edit jang status
+    public function update()
+    {
+        $post = $this->input->post();
+        $id = $this->input->post('id_pengiriman');
+    $data = array (
+        'sale_id' => $post["sale_id"],
+        'id_kurir' => $post["id_kurir"],
+        'nama_customer' => $post["nama_customer"],
+        'phone' => $post["phone"],
+        'nama_barang' => $post["nama_barang"],
+        'alamat_pengiriman' => $post["alamat"],
+        'harga_barang' => $post["harga"],
+        'ongkos_kirim' => $post["ongkos"],
+        'tanggal_kirim' => $post["tkirim"],
+        'tanggal_sampai' => date('Y-m-d H:i:s'),
+        'status_pengiriman' => "Terkirim"
+        );
+    $this->db->where('id_pengiriman',$id);
+    $this->db->update('tb_pengiriman',$data);
+    }
+
 }

@@ -22,17 +22,32 @@
     <ul class="navbar-nav ml-auto ml-md-0">
         
 
-        <li class="nav-item dropdown no-arrow">
-            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                aria-expanded="false">
-                <i class="fas fa-user-circle fa-fw"></i> Admin
+    <li class="nav-item dropdown no-arrow">
+    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false"><strong><?= $this->session->userdata('username') ?></strong>
+
+        <img class=" card-img-top" src="<?= base_url('uploads/user/' . $this->session->userdata('photo')) ?>" style="width: 30px;" />
             </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="#">Settings</a>
-                <a class="dropdown-item" href="#">Activity Log</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
-            </div>
+        <!-- Dropdown - User Information -->
+        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+            <a class="dropdown-item" href="<?= base_url('user/_validasi'); ?>">
+            <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                Profile
+            </a>
+        <a class="dropdown-item" href="<?= site_url('auth/changephoto'); ?>">
+        <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+            Change Photo
+        </a>
+        <a class="dropdown-item" href="<?= site_url('auth/changepass'); ?>">
+        <i class="fas fa-lock fa-sm fa-fw mr-2 text-gray-400"></i>
+            Change Password
+        </a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="<?= site_url('auth/logout'); ?>">
+            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+            Logout
+        </a>
+        </div>
         </li>
     </ul>
 

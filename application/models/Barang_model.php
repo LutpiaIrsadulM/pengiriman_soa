@@ -48,9 +48,19 @@ class Barang_model extends CI_Model
         $this->db->select('*');
         $this->db->from($this->_table_deliver);
         $this->db->join($this->_table_courier, 'tb_kurir.id_kurir = tb_pengiriman.id_kurir');
-        $this->db->where('status_pengiriman', "Diterima");
+        $this->db->where('status_pengiriman', "Terkirim");
         return $this->db->get()->result();
     }
+
+    public function getByKurir(){
+        $this->db->select('*');
+        $this->db->from($this->_table_deliver);
+        $this->db->join($this->_table_courier, 'tb_kurir.id_kurir = tb_pengiriman.id_kurir');
+        $this->db->where('tb_pengiriman.id_kurir', $this->session->userdata('id'));
+        return $this->db->get()->result();
+    }
+
+
     
 
 }
